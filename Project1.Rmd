@@ -1,0 +1,35 @@
+---
+title: "Reproducible Research - Project 1"
+output: html_document
+---
+
+## Assignment
+###Loading and preprocessing the data. 
+1. Load the data (i.e. read.csv())
+2. Process/transform the data (if necessary) into a format suitable for your analysis
+
+```{r loadData, echo = TRUE}
+library(utils)
+library(RCurl)
+library(lubridate)
+library(dplyr)
+temp <- tempfile()
+urlfile<-'https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip'
+download.file(urlfile,temp, mode = "wb") # download the file.
+data<-read.csv(unzip(temp)) # read unzipped  csv file
+str(data)
+data$date <- ymd(data$date) # convert date column into date format
+```
+
+### What is mean total number of steps taken per day?
+
+1. Calculate the total number of steps taken per day
+2. If you do not understand the difference between a histogram and a barplot, research the difference between them. Make a histogram of the total number of steps taken each day
+3. Calculate and report the mean and median of the total number of steps taken per day
+
+```{r dataSummary, echo=TRUE}
+data2 <- data[is.na(data$steps),] # delete missing data
+
+
+
+```
